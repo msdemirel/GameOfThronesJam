@@ -48,10 +48,22 @@ public class Ball : MonoBehaviour
 		yield return new WaitForSeconds(releaseTime);
 
 		GetComponent<SpringJoint2D>().enabled = false;
-		
 
-		
-		
+		this.enabled = false;
+
+		yield return new WaitForSeconds(2f);
+
+		if (nextBall != null)
+		{
+			nextBall.SetActive(true);
+		}
+		else
+		{
+			
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+		}
+
+
 
 	}
 
